@@ -46,5 +46,33 @@
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "ephemeralPubKey",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "stealthRecipientAndViewTag",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "metadata",
+        "type": "bytes32"
+      }
+    ],
+    "name": "privateETHTransfer",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
   }
 ]

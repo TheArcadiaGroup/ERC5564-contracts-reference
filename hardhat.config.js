@@ -49,9 +49,9 @@ module.exports = {
       blockGasLimit: 22400000,
       accounts: [process.env.PRIVATE_KEY_MAINNET],
     },
-    shardeumtestnet: {
-      url: `https://liberty20.shardeum.org/`,
-      gasPrice: 10e9,
+    bsctestnet: {
+      url: `https://data-seed-prebsc-2-s1.binance.org:8545`,
+      gasPrice: 20e9,
       blockGasLimit: 22400000,
       accounts: [process.env.PRIVATE_KEY],
     }

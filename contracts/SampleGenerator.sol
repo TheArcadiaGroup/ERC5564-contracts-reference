@@ -6,7 +6,7 @@ import "./libs/BytesLib.sol";
 import "./interfaces/IERC5564Registry.sol";
 
 /// @notice Sample IERC5564Generator implementation for the secp256k1 curve.
-contract SampleGenerator is EllipticCurve, Initializable, IERC5564Generator {
+contract SampleGenerator is EllipticCurve, Initializable, BytesLib, IERC5564Generator {
     IERC5564Registry public REGISTRY;
 
     function initialize(address _registry) external initializer {

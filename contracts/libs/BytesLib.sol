@@ -8,7 +8,7 @@
  */
 pragma solidity >=0.8.0 <0.9.0;
 
-library BytesLib {
+contract BytesLib {
     function concat(bytes memory _preBytes, bytes memory _postBytes)
         internal
         pure

@@ -1,6 +1,5 @@
 pragma solidity >=0.8.0;
 import "./interfaces/IERC5564Registry.sol";
-import "./libs/BytesLib.sol";
 
 /// @notice Sample IERC5564Generator implementation for the secp256k1 curve.
 contract SampleRegistry is IERC5564Registry {
@@ -23,6 +22,7 @@ contract SampleRegistry is IERC5564Registry {
         bytes memory viewingPubKey
     ) external override {
         stealthKeysRegistry[msg.sender][generator] = [spendingPubKey, viewingPubKey];
+        emit StealthKeyChanged(msg.sender, generator, spendingPubKey, viewingPubKey);
     }
 
     /// @notice Sets the `registrant`s stealth public keys for the `generator` contract using their

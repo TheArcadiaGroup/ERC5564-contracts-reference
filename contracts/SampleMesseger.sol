@@ -1,6 +1,5 @@
 pragma solidity >=0.8.0;
 import "./interfaces/IERC5564Messenger.sol";
-import "./libs/BytesLib.sol";
 
 /// @notice Sample IERC5564Generator implementation for the secp256k1 curve.
 contract SampleMessenger is IERC5564Messenger {
@@ -18,7 +17,18 @@ contract SampleMessenger is IERC5564Messenger {
         bytes memory ephemeralPubKey,
         bytes32 stealthRecipientAndViewTag,
         bytes32 metadata
-    ) external override {
+    ) public override {
         emit Announcement(ephemeralPubKey, stealthRecipientAndViewTag, metadata);
+    }
+
+    function privateETHTransfer(
+        address payable _to, 
+        bytes memory ephemeralPubKey,
+        bytes32 stealthRecipientAndViewTag,
+        bytes32 metadata
+    ) external payable {
+        (bool sent, ) = _to.call{value: msg.value}("");
+        require(sent, "Failed to send Ether");
+        announce(ephemeralPubKey, stealthRecipientAndViewTag, metadata);
     }
 }
